@@ -1,0 +1,46 @@
+@use "../styles/mixins" as mixins;
+@use "../styles/colors" as colors;
+@use "../styles/layout" as layout;
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: colors.$background;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+main {
+  @include mixins.flex(flex, center);
+  padding: layout.$padding;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  @include mixins.flex;
+  padding-right: layout.$padding;
+  padding-left: layout.$padding;
+  border-bottom: layout.$border-bottom;
+}
+
+td:hover {
+  background: colors.$row-hover-color;
+  border-radius: layout.$border-radius;
+}
+
+input {
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding-top: layout.$padding;
+  padding-bottom: layout.$padding;
+}

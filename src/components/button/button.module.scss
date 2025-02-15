@@ -1,0 +1,30 @@
+@use "../../styles/mixins" as mixins;
+@use "../../styles/colors" as colors;
+
+$border-radius: 5px;
+
+.button {
+  all: unset;
+  cursor: pointer;
+  @include mixins.flex;
+  padding: 3px;
+}
+
+.success {
+  &:hover {
+    background-color: colors.$success-color;
+    border-radius: $border-radius;
+  }
+}
+
+.danger {
+  &:hover {
+    background-color: colors.$danger-color;
+    border-radius: $border-radius;
+  }
+}
+
+.disabled {
+  cursor: default;
+  opacity: 0.2;
+}

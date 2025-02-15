@@ -1,0 +1,43 @@
+@use "../../../styles/mixins" as mixins;
+@use "../../../styles/colors" as colors;
+@use "../../../styles/layout" as layout;
+
+.container {
+  @include mixins.flex(column);
+  width: 500px;
+  height: 95vh;
+  background: colors.$container-color;
+  border-radius: layout.$border-radius;
+  box-shadow: layout.$box-shadow;
+  overflow-y: auto;
+}
+
+.header {
+  @include mixins.flex;
+  padding-left: layout.$padding;
+  position: sticky;
+  top: 0;
+  background-color: colors.$container-color;
+}
+
+.innerRow {
+  @include mixins.flex(flex, flex-start);
+  width: 100%;
+  gap: 20px;
+}
+
+.button--incomplete {
+  @include mixins.button;
+  background-color: transparent;
+}
+
+.button--completed {
+  @include mixins.button;
+  background-color: colors.$success-color;
+  border-color: colors.$success-color;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: colors.$text-light;
+}

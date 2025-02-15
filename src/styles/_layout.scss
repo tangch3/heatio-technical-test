@@ -1,0 +1,7 @@
+@use "./colors" as colors;
+
+$border-radius: 12px;
+$padding: 16px;
+$gap: 12px;
+$box-shadow: 0px 5px 10px colors.$box-shadow-color;
+$border-bottom: 1px solid colors.$border-bottom-color;

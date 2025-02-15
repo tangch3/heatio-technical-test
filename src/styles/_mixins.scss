@@ -1,0 +1,18 @@
+@mixin flex(
+  $justify: flex,
+  $space-between: space-between,
+  $align: center,
+  $gap: 0
+) {
+  display: $justify;
+  justify-content: $space-between;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin button {
+  height: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid black;
+}
