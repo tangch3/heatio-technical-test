@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-app.get("/all-todos", (req, res) => {
+app.get("/all-todos", (_, res) => {
   res.status(200).json({ message: "Data retrieved successfully", todos });
 });
 
@@ -16,7 +16,7 @@ app.post("/add-todo", (req, res) => {
   const { task } = req.body;
 
   if (!task) {
-    res.status(204).json({ message: "You must add a task", task });
+    res.status(400).json({ message: "You must add a task", task });
     return;
   }
 
@@ -37,7 +37,7 @@ app.delete("/delete-todo/:id", (req, res) => {
   const index = todos.findIndex((todo) => todo.id === parseInt(id));
 
   if (index === -1) {
-    res.status(400).json({ message: "Todo not found" });
+    res.status(204).json({ message: "Todo not found" });
     return;
   }
 
@@ -52,7 +52,7 @@ app.put("/update-status/:id", (req, res) => {
   const todo = todos.find((todo) => todo.id === parseInt(id));
 
   if (!todo) {
-    res.status(400).json({ message: "Todo not found" });
+    res.status(204).json({ message: "Todo not found" });
     return;
   }
 
@@ -61,6 +61,8 @@ app.put("/update-status/:id", (req, res) => {
   res.status(200).json({ message: "Todo updated" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}
