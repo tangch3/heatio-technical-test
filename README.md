@@ -9,7 +9,7 @@ A simple Todo List application that allows you to:
 
 ## Getting started
 
-This repo contains both **Backend** (Express server) and **Frontend** (Next.js app). Please install the dependcies and run each part separately.
+This repo contains both **Backend** (Express server) and **Frontend** (Next.js app). Please install the dependencies and run each part separately.
 
 ### Backend
 
